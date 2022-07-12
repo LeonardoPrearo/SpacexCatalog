@@ -1,28 +1,30 @@
 package com.example.spacexcatalog.BLL.Service.Implementation;
 
+import com.example.spacexcatalog.BLL.Dto.Request.LaunchSiteRequestDto;
 import com.example.spacexcatalog.BLL.Dto.Request.MissileRequestDto;
 import com.example.spacexcatalog.BLL.Dto.Response.MissileResponseDto;
+import com.example.spacexcatalog.BLL.Mapper.Implementation.Request.LaunchSiteRequestMapper;
 import com.example.spacexcatalog.BLL.Mapper.Implementation.Request.MissileRequestMapper;
 import com.example.spacexcatalog.BLL.Mapper.Implementation.Response.MissileResponseMapper;
 import com.example.spacexcatalog.BLL.Service.Abstraction.MissileService;
+import com.example.spacexcatalog.DAL.Entities.LaunchSite;
 import com.example.spacexcatalog.DAL.Entities.Missile;
 import com.example.spacexcatalog.DAL.Repositories.MissileRepository;
+import lombok.Data;
 import org.mapstruct.factory.Mappers;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Data
 @Service
 public class MissileServiceImpl implements MissileService {
 
     private final MissileRepository missileRepository;
-    private final MissileRequestMapper  missileRequestMapper = Mappers.getMapper(MissileRequestMapper.class);
-    private final MissileResponseMapper missileResponseMapper = Mappers.getMapper(MissileResponseMapper.class);
+    private final MissileRequestMapper  missileRequestMapper;
+    private final MissileResponseMapper missileResponseMapper;
 
-    public MissileServiceImpl(MissileRepository missileRepository) {
-        this.missileRepository = missileRepository;
-    }
+    private final LaunchSiteRequestMapper launchSiteRequestMapper;
 
     @Override
     public void saveMissile(MissileRequestDto missileRequestDto) {
@@ -42,8 +44,8 @@ public class MissileServiceImpl implements MissileService {
     }
 
     @Override
-    public List<MissileResponseDto> updateById(Long id) {
-        return null;
+    public void updateById(Long id, MissileRequestDto missileRequestDto) {
+
     }
 
     @Override

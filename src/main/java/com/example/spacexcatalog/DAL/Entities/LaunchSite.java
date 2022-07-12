@@ -1,5 +1,7 @@
 package com.example.spacexcatalog.DAL.Entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 

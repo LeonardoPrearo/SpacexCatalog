@@ -20,7 +20,6 @@ public class Missile {
     private String image;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "launch_site_id")
     private LaunchSite launchSite;
 
     public Long getId() {

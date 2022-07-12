@@ -1,5 +1,6 @@
 package com.example.spacexcatalog.BLL.Service.Abstraction;
 
+import com.example.spacexcatalog.BLL.Dto.Request.LaunchSiteRequestDto;
 import com.example.spacexcatalog.BLL.Dto.Request.MissileRequestDto;
 import com.example.spacexcatalog.BLL.Dto.Response.MissileResponseDto;
 
@@ -11,7 +12,7 @@ public interface MissileService {
 
     List<MissileResponseDto> findAll();
 
-    List<MissileResponseDto> updateById(Long id);
+    void updateById(Long id, MissileRequestDto missileRequestDto);
 
     void deleteById(Long id);
 }
